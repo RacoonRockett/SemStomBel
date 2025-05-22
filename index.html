@@ -82,9 +82,9 @@
 </header>
 
 <section>
-    <h2>👨‍⚕️ Врач: Иванова Мария Петровна</h2>
+    <h2>👨‍⚕️ Врач: Светлана Крупина</h2>
     <p><strong>Стаж:</strong> 15 лет | <strong>Специализация:</strong> терапевтическая стоматология, детский приём</p>
-    <img src="doctor.jpg" alt="Врач стоматолог Иванова Мария Петровна" style="max-width: 300px; border-radius: 8px;">
+    <img src="doctor.jpg" alt="Врач стоматолог Светлана Крупина" style="max-width: 300px; border-radius: 8px;">
     <blockquote>«Здесь вас всегда знает врач. Никаких очередей, только честное лечение»</blockquote>
 </section>
     
@@ -131,12 +131,31 @@
 <section style="background:#f9f9f9;">
     <h2>🎯 Запишитесь на прием</h2>
     <p>Не ждите, пока станет хуже. Здоровые зубы — залог уверенности!</p>
-    <form class="contact-form" action="https://formspree.io/f/your-form-id " method="POST">
-        <input type="text" name="name" placeholder="Ваше имя" required>
-        <input type="tel" name="phone" placeholder="Телефон" required>
-        <input type="email" name="email" placeholder="Email (не обязательно)">
-        <button type="submit">Отправить заявку</button>
-    </form>
+    <script>
+document.querySelector('.contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const form = new FormData(this);
+    const data = {};
+    form.forEach((value, key) => data[key] = value);
+
+    const token = 'ВАШ_ТОКЕН';
+    const chat_id = 'ВАШ_CHAT_ID';
+    const message = `📞 Новая заявка:\nИмя: ${data.name}\nТелефон: ${data.phone}\nEmail: ${data.email}`;
+
+    fetch(`https://api.telegram.org/bot ${token}/sendMessage`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ chat_id, text: message })
+    }).then(() => {
+        alert('Заявка отправлена!');
+        this.reset();
+    }).catch(err => {
+        console.error(err);
+        alert('Ошибка отправки');
+    });
+});
+</script>
 </section>
 
 <section style="background:#f9f9f9;">
