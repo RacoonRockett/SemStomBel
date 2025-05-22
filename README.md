@@ -1,2 +1,0 @@
-# SemStomBel
-Landing
