@@ -137,14 +137,20 @@
 <section style="background:#f9f9f9;">
     <h2>🎯 Запишитесь на прием</h2>
     <p>Не ждите, пока станет хуже. Здоровые зубы — залог уверенности!</p>
-    <!-- Форма -->
+<!-- Форма -->
 <section>
     <h2>📞 Запишитесь на приём</h2>
     <p>Оставьте свои данные, и мы свяжемся с вами:</p>
 
+    <form id="tg-form">
+        <input type="text" name="name" placeholder="Имя" required><br>
+        <input type="tel" name="phone" placeholder="Телефон" required><br>
+        <input type="email" name="email" placeholder="Email (по желанию)"><br>
+        <button type="submit">Отправить заявку</button>
+    </form>
+
     <div id="response" style="margin-top:10px;"></div>
 </section>
-
 <!-- Скрипт для отправки в Telegram -->
 <script>
 document.getElementById('tg-form').addEventListener('submit', function(e) {
