@@ -74,6 +74,31 @@
         }
     </style>
 </head>
+<script>
+document.querySelector('.contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const form = new FormData(this);
+    const data = {};
+    form.forEach((value, key) => data[key] = value);
+
+    const token = 'ВАШ_ТОКЕН';
+    const chat_id = 'ВАШ_CHAT_ID';
+    const message = `📞 Новая заявка:\nИмя: ${data.name}\nТелефон: ${data.phone}\nEmail: ${data.email}`;
+
+    fetch(`https://api.telegram.org/bot ${token}/sendMessage`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ chat_id, text: message })
+    }).then(() => {
+        alert('Заявка отправлена!');
+        this.reset();
+    }).catch(err => {
+        console.error(err);
+        alert('Ошибка отправки');
+    });
+});
+</script>
 <body>
 
 <header>
@@ -151,31 +176,5 @@
     <p>© 2015–2025 Семейная стоматология|Беломорск. Все права защищены.</p>
     <p>Сайт носит информационный характер и не является публичной офертой.</p>
 </footer>
-
-<script>
-document.querySelector('.contact-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    const form = new FormData(this);
-    const data = {};
-    form.forEach((value, key) => data[key] = value);
-
-    const token = 'ВАШ_ТОКЕН';
-    const chat_id = 'ВАШ_CHAT_ID';
-    const message = `📞 Новая заявка:\nИмя: ${data.name}\nТелефон: ${data.phone}\nEmail: ${data.email}`;
-
-    fetch(`https://api.telegram.org/bot ${token}/sendMessage`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ chat_id, text: message })
-    }).then(() => {
-        alert('Заявка отправлена!');
-        this.reset();
-    }).catch(err => {
-        console.error(err);
-        alert('Ошибка отправки');
-    });
-});
-</script>
 </body>
 </html>
