@@ -165,8 +165,8 @@ document.getElementById('tg-form').addEventListener('submit', function(e) {
     const data = {};
     form.forEach((value, key) => data[key] = value);
 
-    const token = 'token'; // ← замените на ваш токен
-    const chat_id = 'chat_id'; // ← замените на ваш chat_id
+    const token = telegramConfig.token; // ← замените на ваш токен
+    const chat_id = telegramConfig.chat_id; // ← замените на ваш chat_id
     const message = `
 📞 Новая заявка:
 Имя: ${data.name}
