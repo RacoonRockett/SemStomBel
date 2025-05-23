@@ -136,7 +136,7 @@
     <strong>График работы:</strong> Пн–Пт: 9:00–18:00, Сб: 9:00–14:00<br>
     <strong>Телефон:</strong> +7 (814 37) 54365<br>
     <strong>Мобильный:</strong> +7 (960) 217-28-00</p>
-    <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Ab849ecf25b43911bc0e31b8a3ffd1d0c33319f7d99042e8293ec33e8a688498d&amp ;source=constructor" width="630" height="300" frameborder="0"></iframe>
+    <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Ab849ecf25b43911bc0e31b8a3ffd1d0c33319f7d99042e8293ec33e8a688498d&amp;source=constructor" width="630" height="300" frameborder="0"></iframe>
 </section>
 
 <section style="background:#f9f9f9;">
@@ -165,8 +165,9 @@ document.getElementById('tg-form').addEventListener('submit', function(e) {
     const data = {};
     form.forEach((value, key) => data[key] = value);
 
-    const token = telegramConfig.token; // ← замените на ваш токен
-    const chat_id = telegramConfig.chat_id; // ← замените на ваш chat_id
+    const token = telegramConfig.token;
+    const chat_id = telegramConfig.chat_id;
+
     const message = `
 📞 Новая заявка:
 Имя: ${data.name}
@@ -174,14 +175,14 @@ document.getElementById('tg-form').addEventListener('submit', function(e) {
 Email: ${data.email}
 `.trim();
 
-    fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+    fetch(`https://api.telegram.org/bot ${token}/sendMessage`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            chat_id: telegramConfig.chat_id,
-        text: message
+            chat_id: chat_id,
+            text: message
         })
     })
     .then(() => {
@@ -203,7 +204,7 @@ Email: ${data.email}
 </section>
 
 <footer>
-    <p><a href="https://vk.com/semstombel " target="_blank">Мы в ВКонтакте</a></p>
+    <p><a href="https://vk.com/semstombel "target="_blank">Мы в ВКонтакте</a></p>
     <p>© 2015–2025 Семейная стоматология | Беломорск. Все права защищены.</p>
     <p>Сайт носит информационный характер и не является публичной офертой.</p>
 </footer>
