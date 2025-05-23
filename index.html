@@ -31,12 +31,13 @@
 
         h1 {
             margin: 0;
-    padding: 0;
-    color: #ffffff;
-    font-size: 28px;
+            padding: 0;
+            color: #ffffff;
+            font-size: 28px;
         }
+
         h2 {
-    color: #007B7F;
+            color: #007B7F;
         }
 
         blockquote {
@@ -47,7 +48,7 @@
 
         .contact-form input,
         .contact-form textarea {
-            width: 50%;
+            width: 100%;
             padding: 10px;
             margin: 10px 0;
             box-sizing: border-box;
@@ -77,13 +78,17 @@
             section {
                 padding: 20px 10px;
             }
+            .contact-form input,
+            .contact-form textarea {
+                width: 100%;
+            }
         }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>Семейная стоматология|Беломорск</h1>
+    <h1>Семейная стоматология | Беломорск</h1>
     <p>Единственный кабинет в городе | Где знают всех по имени</p>
 </header>
 
@@ -93,7 +98,7 @@
     <img src="doctor.jpg" alt="Врач стоматолог Светлана Крупина" style="max-width: 300px; border-radius: 8px;">
     <blockquote>«Здесь вас всегда знает врач. Никаких очередей, только честное лечение»</blockquote>
 </section>
-    
+
 <section>
     <h2>🛠 Современное оборудование</h2>
     <p>Для диагностики и лечения мы используем проверенные технологии и материалы.</p>
@@ -125,20 +130,19 @@
 </section>
 
 <section style="background:#f9f9f9;">
-    <style="max-width: 300px; border-radius: 8px;>
     <h2>📍 Как нас найти</h2>
     <p><strong>Адрес:</strong> ул. Воронина, д. 4, г. Беломорск<br>
     <strong>График работы:</strong> Пн–Пт: 9:00–18:00, Сб: 9:00–14:00<br>
     <strong>Телефон:</strong> +7 (814 37) 54365<br>
     <strong>Мобильный:</strong> +7 (960) 217-28-00</p>
-    <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Ab849ecf25b43911bc0e31b8a3ffd1d0c33319f7d99042e8293ec33e8a688498d&amp;source=constructor" width="630" height="300" frameborder="0"></iframe>
+    <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Ab849ecf25b43911bc0e31b8a3ffd1d0c33319f7d99042e8293ec33e8a688498d&amp ;source=constructor" width="630" height="300" frameborder="0"></iframe>
 </section>
 
 <section style="background:#f9f9f9;">
     <h2>🎯 Запишитесь на прием</h2>
     <p>Не ждите, пока станет хуже. Здоровые зубы — залог уверенности!</p>
-<!-- Форма -->
-<section>
+
+    <!-- Форма -->
     <h2>📞 Запишитесь на приём</h2>
     <p>Оставьте свои данные, и мы свяжемся с вами:</p>
 
@@ -151,7 +155,7 @@
 
     <div id="response" style="margin-top:10px;"></div>
 </section>
-<!-- Скрипт для отправки в Telegram -->
+
 <script>
 document.getElementById('tg-form').addEventListener('submit', function(e) {
     e.preventDefault();
@@ -160,8 +164,8 @@ document.getElementById('tg-form').addEventListener('submit', function(e) {
     const data = {};
     form.forEach((value, key) => data[key] = value);
 
-    const token = 'token'; // ← замените на ваш токен
-    const chat_id = 'chat_id'; // ← замените на ваш chat_id
+    const token = '1234567890:ABCdefGHIjklMNOpqrSTUvwxYZ'; // ← замените на ваш токен
+    const chat_id = '123456789'; // ← замените на ваш chat_id
     const message = `
 📞 Новая заявка:
 Имя: ${data.name}
@@ -185,29 +189,23 @@ Email: ${data.email}
     })
     .catch(err => {
         console.error('Ошибка:', err);
-        document.getElementById('response').textContent = 'Ошибка отправки заявки.';
+        document.getElementById('response').textContent = 'Ошибка отправки.';
     });
 });
 </script>
-    
-</section>
 
 <section style="background:#f9f9f9;">
     <h2>🗣️ Отзывы пациентов</h2>
-    <blockquote>«Хожу только к Марии Петровне. Никогда не подводила!» — 
-
-Екатерина</blockquote>
-    <blockquote>«Очень благодарны за лечение ребенка. Тактично и без страха!» — Дмитрий и 
-
-Ольга</blockquote>
+    <blockquote>«Хожу только к Марии Петровне. Никогда не подводила!» — Екатерина</blockquote>
+    <blockquote>«Очень благодарны за лечение ребенка. Тактично и без страха!» — Дмитрий и Ольга</blockquote>
     <blockquote>«Лучший врач в районе. Рекомендую всем!» — Анатолий</blockquote>
 </section>
 
 <footer>
-    <p><a href="https://vk.com/semstombel" target="_blank">Мы в ВКонтакте</a></p>
-    
-    <p>© 2015–2025 Семейная стоматология|Беломорск. Все права защищены.</p>
+    <p><a href="https://vk.com/semstombel " target="_blank">Мы в ВКонтакте</a></p>
+    <p>© 2015–2025 Семейная стоматология | Беломорск. Все права защищены.</p>
     <p>Сайт носит информационный характер и не является публичной офертой.</p>
 </footer>
+
 </body>
 </html>
