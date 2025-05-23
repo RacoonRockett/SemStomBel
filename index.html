@@ -146,16 +146,19 @@
 
     <!-- Форма -->
     <h2>📞 Запишитесь на приём</h2>
-    <p>Оставьте свои данные, и мы свяжемся с вами:</p>
+<p>Оставьте свои данные, и мы свяжемся с вами:</p>
 
-    <form id="tg-form">
-        <input type="text" name="name" placeholder="Имя" required><br>
-        <input type="tel" name="phone" placeholder="Телефон" required><br>
-        <textarea name="message" placeholder="Опишите вашу ситуацию или пожелания"></textarea><br>
-        <button type="submit">Отправить заявку</button>
-    </form>
+<form id="tg-form">
+    <input type="text" name="name" placeholder="Имя" required><br>
+    <input type="tel" name="phone" placeholder="Телефон" required><br>
+    
+    <!-- Новое поле -->
+    <textarea name="message" placeholder="Опишите вашу ситуацию или пожелания"></textarea><br>
+    
+    <button type="submit">Отправить заявку</button>
+</form>
 
-    <div id="response" style="margin-top:10px;"></div>
+<div id="response" style="margin-top:10px;"></div>
 </section>
 
 <script>
@@ -169,7 +172,7 @@ document.getElementById('tg-form').addEventListener('submit', function(e) {
     const token = telegramConfig.token;
     const chat_id = telegramConfig.chat_id;
 
-    const message = `
+    const telegramMessage = `
 📞 Новая заявка:
 Имя: ${data.name}
 Телефон: ${data.phone}
@@ -183,7 +186,7 @@ document.getElementById('tg-form').addEventListener('submit', function(e) {
         },
         body: JSON.stringify({
             chat_id: chat_id,
-            text: message
+            text: telegramMessage
         })
     })
     .then(() => {
