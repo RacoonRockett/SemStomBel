@@ -151,7 +151,7 @@
     <form id="tg-form">
         <input type="text" name="name" placeholder="Имя" required><br>
         <input type="tel" name="phone" placeholder="Телефон" required><br>
-        <input type="email" name="email" placeholder="Email (по желанию)"><br>
+        <textarea name="message" placeholder="Опишите вашу ситуацию или пожелания"></textarea><br>
         <button type="submit">Отправить заявку</button>
     </form>
 
@@ -173,7 +173,7 @@ document.getElementById('tg-form').addEventListener('submit', function(e) {
 📞 Новая заявка:
 Имя: ${data.name}
 Телефон: ${data.phone}
-Email: ${data.email}
+Сообщение: ${data.message || 'Не указано'}
 `.trim();
 
     fetch(`https://api.telegram.org/bot ${token}/sendMessage`, {
